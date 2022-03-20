@@ -1,194 +1,198 @@
 <!DOCTYPE html>
 <html>
+  <style>
+    .content {
+      max-width: auto;
+      margin: auto;
+    }
 
-<style>
-.content {
-  max-width: auto;
-  margin: auto;
-}
+    .topbarLeft {
+      background-color: #00228a;
+      overflow: hidden;
+    }
+    .topbarLeft a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 19px;
+    }
+    .topbarLeft a:hover {
+      background-color: #ffffff;
+      color: black;
+    }
 
-.topbarLeft {
-  background-color: #00228a;
-  overflow: hidden;
-}
-.topbarLeft a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 19px;
-}
-.topbarLeft a:hover {
-  background-color: #ffffff;
-  color: black;
-}
+    .logobar {
+      background-color: #00228a;
+      overflow: hidden;
+    }
+    .logobar a {
+      float: left;
+      color: #00228a;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 19px;
+    }
+    .logobar a:login {
+      text-align: left;
+    }
 
-.logobar {
-  background-color: #00228a;
-  overflow: hidden;
-}
-.logobar a {
-  float: left;
-  color: #00228a;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 19px;
-}
-.logobar a:login {
-	text-align: left;
-}
+    form.example input[type="text"] {
+      padding: 15px;
+      font-size: 17px;
+      border: 1px solid white;
+      float: left;
+      width: 17%;
+      background: #ffffff;
+    }
+    form.example button {
+      float: left;
+      width: 3%;
+      padding: 15px;
+      background: #2196f3;
+      color: white;
+      font-size: 17px;
+      border: 1px solid grey;
+      border-left: none; /* Prevent double borders */
+      cursor: pointer;
+    }
 
-form.example input[type=text] {
-  padding: 15px;
-  font-size: 17px;
-  border: 1px solid white;
-  float: left;
-  width: 17%;
-  background: #ffffff;
-}
-form.example button {
-  float: left;
-  width: 3%;
-  padding: 15px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-}
+    .card {
+      float: left;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: Rockwell;
+    }
 
+    .price {
+      color: grey;
+      font-size: 22px;
+    }
 
+    .list1{
+      font-family: Rockwell;
+          position: relative;
+          left: 100px;
+          top: 100px;
+          font-size: 35px;
+    }
 
-.card {
-	float:  left;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: Rockwell;
+    .card button {
+      border: none;
+      outline: 0;
+      padding: 12px;
+      color: white;
+      background-color: #00228a;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
 
-}
+    .card button:hover {
+      opacity: 0.7;
+    }
+  </style>
 
-.price {
-  color: grey;
-  font-size: 22px;
-}
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
 
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #00228a;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
+  <head>
+    <meta charset="utf-8" />
+    <title>Seafood WebStore</title>
+  </head>
 
-.card button:hover {
-  opacity: 0.7;
-}
+  <body>
+    <div class="content">
+      <div class="logobar">
+        <body>
+          <h1 style="font-family: Rockwell; color: white; font-size: 40px">
+            &nbsp;Seafood Store
+          </h1>
+        </body>
+      </div>
 
+      <div style="font-family: Rockwell" class="topbarLeft">
+        <a class="active" href="index.html">Home</a>
+        <a href="about.html">About </a>
+        <a href="orders.html">Orders</a>
+        <a style="float: right" href="cart.html">Checkout</a>
+        <a style="float: right" href="login.html">Login</a>
+        <form class="example" action="action_page.php">
+          <input
+            style="float: right"
+            type="text"
+            placeholder="Search.."
+            name="search"
+          />
+          <button style="float: right" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
 
+      <div class="list1"
+      >
+        <body class="active" href="index.html">
+          Best-selling
+        </body>
+      </div>
 
-</style>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-<head>
-	<meta charset="utf-8">
-	<title>Seafood WebStore</title>
-</head>
-
-<body>
-
-<div class="content">
-
-<div class="logobar">
-<body>
-<h1 style="font-family: Rockwell; color:white;font-size:40px;">&nbsp;Seafood Store</h1>
-</body>
-</div>
-
-<div style="font-family: Rockwell" class="topbarLeft">
-  <a class="active" href="index.html">Home</a>
-  <a href="about.html">About </a>
-  <a href="orders.html">Orders</a>
-  <a style="float:right" href="cart.html">Checkout</a>
-  <a style="float:right" href="login.html">Login</a>
-  <form class="example" action="action_page.php">
-  <input style="float:right"type="text" placeholder="Search.." name="search">
-  <button style="float:right"type="submit"><i class="fa fa-search"></i></button>
-</form>
-</div>
-
-<div style="font-family: Rockwell; position: relative; left: 100px; top: 100px; 
-font-size: 35px;" class="list1">
-  <body class="active" href="index.html">Best-selling</body>
-</div>
-
-
-<!--
+      <!--
 <a href="cart.html">
     <input type="submit" value="cart" />
 </a>
 --->
-<div style="font-family: Rockwell; position: relative; left: 100px; top: 120px; 
-font-size: 10px"class="card">
-  <img src="images/CrabLegs.jpeg" alt="CrabLegs" style="width:100%">
-  <h1>Crab Legs</h1>
-  <p class="price">$21.99/1lb</p>
-  <p>Some text..</p>
-  <p><button>Add to Cart</button></p>
-</div>
+      <div class="card"
+      >
+        <img src="images/CrabLegs.jpeg" alt="CrabLegs" style="width: 100%" />
+        <h1>Crab Legs</h1>
+        <p class="price">$21.99/1lb</p>
+        <p>Some text..</p>
+        <p><button>Add to Cart</button></p>
+      </div>
 
-<div style="font-family: Rockwell; position: relative; left: 120px; top: 120px; 
-font-size: 10px"class="card">
-  <img src="images/shrimp.jpeg" alt="shrimp" style="width:100%">
-  <h1>Shrimp</h1>
-  <p class="price">$16.99/1lb</p>
-  <p>Some text..</p>
-  <p><button>Add to Cart</button></p>
-</div>
+      <div class="card"
+      >
+        <img src="images/shrimp.jpeg" alt="shrimp" style="width: 100%" />
+        <h1>Shrimp</h1>
+        <p class="price">$16.99/1lb</p>
+        <p>Some text..</p>
+        <p><button>Add to Cart</button></p>
+      </div>
 
-<div style="font-family: Rockwell; position: relative; left: 140px; top: 120px; 
-font-size: 10px"class="card">
-  <img src="images/Squid.jpg" alt="Squid" style="width:100%">
-  <h1>Squid</h1>
-  <p class="price">$19.99/1lb</p>
-  <p>Some text..</p>
-  <p><button>Add to Cart</button></p>
-</div>
+      <div class="card"
+      >
+        <img src="images/Squid.jpg" alt="Squid" style="width: 100%" />
+        <h1>Squid</h1>
+        <p class="price">$19.99/1lb</p>
+        <p>Some text..</p>
+        <p><button>Add to Cart</button></p>
+      </div>
 
-<div style="font-family: Rockwell; position: relative; left: 160px; top: 120px; 
-font-size: 10px"class="card">
-  <img src="images/octopus.jpeg" alt="octopus" style="width:100%">
-  <h1>Octopus</h1>
-  <p class="price">$26.99/1lb</p>
-  <p>Some text..</p>
-  <p><button>Add to Cart</button></p>
-</div>
+      <div class="card"
+      >
+        <img src="images/octopus.jpeg" alt="octopus" style="width: 100%" />
+        <h1>Octopus</h1>
+        <p class="price">$26.99/1lb</p>
+        <p>Some text..</p>
+        <p><button>Add to Cart</button></p>
+      </div>
 
-<div style="font-family: Rockwell; position: relative; left: 180px; top: 120px; 
-font-size: 10px"class="card">
-  <img src="images/mussels.jpeg" alt="mussels" style="width:100%">
-  <h1>Mussels</h1>
-  <p class="price">$23.99/1lb</p>
-  <p>Some text..</p>
-  <p><button>Add to Cart</button></p>
-</div>
-
-
-
-
-</div>
-
-
-</body>
+      <div class="card"
+      >
+        <img src="images/mussels.jpeg" alt="mussels" style="width: 100%" />
+        <h1>Mussels</h1>
+        <p class="price">$23.99/1lb</p>
+        <p>Some text..</p>
+        <p><button>Add to Cart</button></p>
+      </div>
+    </div>
+  </body>
 </html>
