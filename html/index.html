@@ -6,21 +6,28 @@
   max-width: auto;
   margin: 0 auto;
   position: relative;
-  min-height: 100vh;
-
+  min-height: 100%;
+  padding-bottom: 100px;
 }
+
 /*remove the white borders*/
 *{
   margin: 0px;
   padding: 0px;
   overflow-x:hidden;
+  box-sizing: border-box;
+}
+
+/*prevent the footer from covering content*/
+html, body{
+  height: 100%;
 }
 
 /*footer styling*/
-footer {
+.footer {
   margin-top: auto;
   overflow:hidden;
-  position: static;
+  position: relative;
   padding: 10px;
   left: 100px;
   bottom: 0px;
@@ -30,6 +37,16 @@ footer {
   text-align: left;
   font-family: Rockwell;
 }
+.footer h2{
+  margin-bottom: 5px;
+}
+.footer p{
+  margin-bottom: 5px;
+}
+.footer-container{
+  border-top: 3px solid darkblue;
+}
+
 
 /*Navigation bar styling*/
 .topbarLeft {
@@ -81,7 +98,7 @@ form.search input[type=text] {
 }
 form.search button {
   float: left;
-  width: 3%;
+  width: 4%;
   padding: 15px;
   background: #2196F3;
   color: white;
@@ -135,7 +152,6 @@ form.search button {
   cursor: pointer;
   width: 100%;
   font-size: 18px;
-  float: right;
 }
 .card button:hover {
   opacity: 0.7;
@@ -232,7 +248,7 @@ font-size: 35px;" class="list1">
     <option value="2lb">2lb</option>
     <option value="3lb">3lb</option>
     <option value="4lb">4lb</option>
-  </select> 
+  </select>
   <p><button>Add to Cart</button></p>
 </div>
 
@@ -251,13 +267,17 @@ font-size: 35px;" class="list1">
 
 
 </div>
+
+<div class="footer-container">
+  <div class="footer">
+    <div class="footer heading footer-1">
+      <h2>Developers</h2>
+      <p>Luong Luu</p>
+      <p>Terrence Coy</p>
+      <p>Mohammed Almalki</p>
+      </div>
+  </div>
+</div>
+
 </body>
-
-<footer>
-  <p>Developed by:</p>
-  <p>Luong Luu</p>
-  <p>Terrence Coy</p>
-  <p>Mohammed Almalki</p>
-</footer>
-
 </html>
