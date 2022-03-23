@@ -3,7 +3,10 @@
   <style>
     .content {
       max-width: auto;
-      margin: auto;
+      margin: 0 auto;
+      position: relative;
+      min-height: 100%;
+      padding-bottom: 100px;
     }
     .topbarLeft {
       background-color: #00228a;
@@ -36,107 +39,122 @@
     .logobar a:login {
       text-align: left;
     }
-    .login {
-      height: 100%;
+
+    /*footer styling*/
+    .footer {
+      margin-top: auto;
+      overflow: hidden;
+      position: relative;
+      padding: 10px;
+      left: 100px;
+      bottom: 0px;
       width: 100%;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(images/shrimp_test.jpg);
-      background-position: center;
-      background-size: cover;
+      background-color: white;
+      color: black;
+      text-align: left;
+      font-family: Rockwell;
+    }
+    .footer h2 {
+      margin-bottom: 5px;
+    }
+    .footer p {
+      margin-bottom: 5px;
+    }
+    .footer-container {
+      border-top: 3px solid darkblue;
+    }
+
+    .form-box {
+      width: 380px;
+      height: 600px;
+      position: relative;
+      margin: 6% auto;
+      background: #fff;
+      padding: 5px;
+      overflow: hidden;
+    }
+    .button-box {
+      width: 220px;
+      margin: 35px auto;
+      position: relative;
+      box-shadow: 0 0 20px 9px #0000001f;
+    }
+    .toggle-button {
+      padding: 10px 30px;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      outline: none;
+      position: relative;
+    }
+    .input-firstname {
+      top: 180px;
+      position: absolute;
+      width: 280px;
+      transition: 0.5s;
+    }
+    .input-group {
+      top: 180px;
+      position: absolute;
+      width: 280px;
+      transition: 0.5s;
+    }
+    .input-field {
+      width: 100%;
+      padding: 10px 0;
+      margin: 5px 0;
+      border-left: 0;
+      border-top: 0;
+      border-right: 0;
+      border-bottom: 1px solid #999;
+      outline: none;
+      background: transparent;
+    }
+    .input-field:first-child {
+      margin-right: 20px;
+    }
+
+    .submit-button {
+      width: 85%;
+      padding: 10px 30px;
+      cursor: pointer;
+      display: block;
+      margin: auto;
+      background: linear-gradient(to right, #e21f3f, #e2e077);
+      border: 0;
+      outline: none;
+    }
+    .check-box {
+      margin: 30px 10px 30px 0;
+    }
+    span {
+      color: #777;
+      font-size: 12px;
+      bottom: 68px;
       position: absolute;
     }
-    .form-box{
-        width: 380px;
-        height: 480px;
-        position: relative;
-        margin: 6% auto;
-        background: #fff;
-        padding: 5px;
-        overflow: hidden;
-    }
-    .button-box{
-        width: 220px;
-        margin: 35px auto;
-        position: relative;
-        box-shadow: 0 0 20px 9px #0000001f;
-    }
-    .toggle-button{
-        padding: 10px 30px;
-        cursor:  pointer;
-        background: transparent;
-        border: 0;
-        outline: none;
-        position: relative;
-    }
-    .input-firstname{
-        top: 180px;
-        position:absolute;
-        width: 280px;
-        transition: .5s;
-    }
-    .input-group{
-        top: 180px;
-        position: absolute;
-        width: 280px;
-        transition: .5s;        
-    }
-    .input-field{        
-        
-        width: 100%;
-        padding: 10px 0;
-        margin: 5px 0;
-        border-left: 0;
-        border-top: 0;
-        border-right: 0;
-        border-bottom: 1px solid #999;
-        outline: none;
-        background: transparent;
-    }
-    .input-field:first-child{
-        margin-right: 20px;
-    }
-
-    .submit-button{
-        width: 85%;
-        padding: 10px 30px;
-        cursor: pointer;
-        display: block;
-        margin: auto;
-        background: linear-gradient(to right, #e21f3f, #e2e077);
-        border: 0;
-        outline: none;
-    }
-    .check-box{
-        margin: 30px 10px 30px 0;
-    }
-    span{
-        color: #777;
-        font-size: 12px;
-        bottom: 68px;
-        position: absolute;
-    }
     option {
-    font-weight: normal;
-    display: block;
-    white-space: nowrap;
-    min-height: 1.2em;
-    padding: 0px 2px 1px;
-}
-    #login{
-        left: 50px;
+      font-weight: normal;
+      display: block;
+      white-space: nowrap;
+      min-height: 1.2em;
+      padding: 0px 2px 1px;
     }
-    #register{
-        left: 450px;
+    #login {
+      left: 50px;
+    }
+    #register {
+      left: 450px;
     }
 
-    #button{
-        top: 0;
-        left: 0;
-        position:absolute;
-        width: 110px;
-        height: 100%;
-        background: linear-gradient(to right, #e21f3f, #e2e077);        
-        transition: .5s;
+    #button {
+      top: 0;
+      left: 0;
+      position: absolute;
+      width: 110px;
+      height: 100%;
+      background: linear-gradient(to right, #e21f3f, #e2e077);
+      transition: 0.5s;
     }
     form.example input[type="text"] {
       padding: 15px;
@@ -199,106 +217,156 @@
       </div>
 
       <div class="login">
-          <div id="form-box" class="form-box">
-            <div class="button-box">
-                <div id="button"></div>
-                <button type="button" class="toggle-button" onclick="login()">Login</button>
-                <button type="button" class="toggle-button" onclick="register()">Register</button>
-            </div>
+        <div id="form-box" class="form-box">
+          <div class="button-box">
+            <div id="button"></div>
+            <button type="button" class="toggle-button" onclick="login()">
+              Login
+            </button>
+            <button type="button" class="toggle-button" onclick="register()">
+              Register
+            </button>
+          </div>
 
-            <form id="login" class="input-group">
-              <input type="text" class="input-field" placeholder="Email Address" required>
-              <input type="text" class="input-field" placeholder="Enter Password" required>
-              <input type="checkbox" class="check-box"><span>Remember Password</span>
-              <button type="submit" class="submit-button">Login</button>
-            </form>
+          <form id="login" class="input-group">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Email Address"
+              required
+            />
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Enter Password"
+              required
+            />
+            <input type="checkbox" class="check-box" /><span
+              >Remember Password</span
+            >
+            <button type="submit" class="submit-button">Login</button>
+          </form>
 
-            <form id="register" class="input-group">
-                <input type="text" class="input-field" placeholder="First Name" required>
-                <input type="text" class="input-field" placeholder="Last Name" required>
-                <input type="text" class="input-field" placeholder="Address" required>
-                <select id="input-state" class="input-field">
-                        <option value selected="selected">Select a state</option>
-                        <option value="AL">Alabama</option>
-                        <option value="AK">Alaska</option>
-                        <option value="AB">Alberta</option>
-                        <option value="AZ">Arizona</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="CA">California</option>
-                        <option value="CO">Colorado</option>
-                        <option value="CT">Connecticut</option>
-                        <option value="DE">Delaware</option>
-                        <option value="DC">District of Columbia</option>
-                        <option value="FL">Florida</option>
-                        <option value="GA">Georgia</option>
-                        <option value="HI">Hawaii</option>
-                        <option value="ID">Idaho</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IN">Indiana</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="ME">Maine</option>
-                        <option value="MD">Maryland</option>
-                        <option value="MA">Massachusetts</option>
-                        <option value="MI">Michigan</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="MT">Montana</option>
-                        <option value="NE">Nebraska</option>
-                        <option value="NV">Nevada</option>
-                        <option value="NH">New Hampshire</option>
-                        <option value="NJ">New Jersey</option>
-                        <option value="NM">New Mexico</option>
-                        <option value="NY">New York</option>
-                        <option value="NC">North Carolina</option>
-                        <option value="ND">North Dakota</option>
-                        <option value="OH">Ohio</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="OR">Oregon</option>
-                        <option value="PA">Pennsylvania</option>
-                        <option value="RI">Rhode Island</option>
-                        <option value="SC">South Carolina</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="TX">Texas</option>
-                        <option value="UT">Utah</option>
-                        <option value="VT">Vermont</option>
-                        <option value="VA">Virginia</option>
-                        <option value="WA">Washington</option>
-                        <option value="WV">West Virginia</option>
-                        <option value="WI">Wisconsin</option>
-                        <option value="WY">Wyoming</option>
-                </select>
-                <input type="email" class="input-field" placeholder="Email" required>       
-                <input type="password" class="input-field" placeholder="Password" required>         
-                <button type="submit" class="submit-button">Register</button>
-              </form>
+          <form id="register" class="input-group">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="First Name"
+              required
+            />
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Last Name"
+              required
+            />
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Address"
+              required
+            />
+            <select id="input-state" class="input-field">
+              <option value selected="selected">Select a state</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AB">Alberta</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+            <input
+              type="email"
+              class="input-field"
+              placeholder="Email"
+              required
+            />
+            <input
+              type="password"
+              class="input-field"
+              placeholder="Password"
+              required
+            />
+            <button type="submit" class="submit-button">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-container">
+      <div class="footer">
+        <div class="footer heading footer-1">
+          <h2>Developers</h2>
+          <p>Luong Luu</p>
+          <p>Terrence Coy</p>
+          <p>Mohammed Almalki</p>
+        </div>
       </div>
     </div>
 
     <script>
-        var _login = document.getElementById("login");
-        var _register = document.getElementById("register");
-        var _button = document.getElementById("button");
-        var _formbox = document.getElementById("form-box");
+      var _login = document.getElementById("login");
+      var _register = document.getElementById("register");
+      var _button = document.getElementById("button");
+      var _formbox = document.getElementById("form-box");
 
-        function register(){
-            _login.style.left = "-400px"
-            _register.style.left = "50px";
-            _button.style.left = "110px";
-            _formbox.style.height = "600px";
-        }
+      function register() {
+        _login.style.left = "-400px";
+        _register.style.left = "50px";
+        _button.style.left = "110px";
+      }
 
-        function login(){
-            _login.style.left = "50px"
-            _register.style.left = "450px";
-            _button.style.left = "0px";
-            _formbox.style.height = "480px";
-        }
+      function login() {
+        _login.style.left = "50px";
+        _register.style.left = "450px";
+        _button.style.left = "0px";
+      }
     </script>
-
   </body>
 </html>
