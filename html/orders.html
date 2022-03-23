@@ -3,7 +3,10 @@
   <style>
     .content {
       max-width: auto;
-      margin: auto;
+      margin: 0 auto;
+      position: relative;
+      min-height: 100%;
+      padding-bottom: 100px;
     }
     .topbarLeft {
       background-color: #00228a;
@@ -35,15 +38,6 @@
     }
     .logobar a:login {
       text-align: left;
-    }
-    .login {
-      height: 100%;
-      width: 100%;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(images/shrimp_test.jpg);
-      background-position: center;
-      background-size: cover;
-      position: absolute;
     }
 
     form.example input[type="text"] {
@@ -98,7 +92,7 @@
       padding-top: 25px;
     }
 
-    .order-container{
+    .order-container {
       padding-top: 25px;
     }
 
@@ -151,6 +145,36 @@
       width: 120px;
       height: 120px;
       margin-right: 10px;
+    }
+
+    /*prevent the footer from covering content*/
+    html,
+    body {
+      height: 100%;
+    }
+
+    /*footer styling*/
+    .footer {
+      margin-top: auto;
+      overflow: hidden;
+      position: relative;
+      padding: 10px;
+      left: 100px;
+      bottom: 0px;
+      width: 100%;
+      background-color: white;
+      color: black;
+      text-align: left;
+      font-family: Rockwell;
+    }
+    .footer h2 {
+      margin-bottom: 5px;
+    }
+    .footer p {
+      margin-bottom: 5px;
+    }
+    .footer-container {
+      border-top: 3px solid darkblue;
     }
   </style>
 
@@ -292,8 +316,18 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <!----Footer--->
+    <!----Footer--->
+    <div class="footer-container">
+      <div class="footer">
+        <div class="footer heading footer-1">
+          <h2>Developers</h2>
+          <p>Luong Luu</p>
+          <p>Terrence Coy</p>
+          <p>Mohammed Almalki</p>
+        </div>
+      </div>
     </div>
   </body>
 </html>
