@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.content {
+  max-width: auto;
+  margin: auto;
+}
+
+.topbarLeft {
+  background-color: #00228a;
+  overflow: hidden;
+}
+.topbarLeft a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 19px;
+}
+.topbarLeft a:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+.logobar {
+  background-color: #00228a;
+  overflow: hidden;
+}
+.logobar a {
+  float: left;
+  color: #00228a;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 19px;
+}
+.logobar a:login {
+	text-align: left;
+}
+
+form.example input[type=text] {
+  padding: 15px;
+  font-size: 17px;
+  border: 1px solid white;
+  float: left;
+  width: 17%;
+  background: #ffffff;
+}
+form.example button {
+  float: left;
+  width: 3%;
+  padding: 15px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+
+
+.card {
+	float:  left;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: Rockwell;
+
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #00228a;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+body {
+  font-family: Rockwell;
+  font-size: 22px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  flex-warp: warp;
+  margin: 0 -10px;
+}
+
+.column 25 {
+  flex: 25%;
+}
+
+.column 50 {
+  flex: 50%;
+}
+
+.column 75 {
+  flex: 75%;
+}
+
+.column 25,
+.column 50,
+.column 75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 90%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+a {
+  color: #45a049;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  display: block;
+  margin: auto;
+  border: none;
+  width: 70%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #28B463;
+}
+
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<head>
+	<meta charset="utf-8">
+	<title>Seafood WebStore</title>
+</head>
+
+<body>
+
+<div class="content">
+
+<div class="logobar">
+<body>
+<h1 style="font-family: Rockwell; color:white;font-size:40px;">&nbsp;Seafood Store</h1>
+</body>
+</div>
+
+<div style="font-family: Rockwell" class="topbarLeft">
+  <a class="active" href="index.html">Home</a>
+  <a href="about.html">About </a>
+  <a href="orders.html">Orders</a>
+  <a style="float:right" href="cart.html">Checkout</a>
+  <a style="float:right" href="login.html">Login</a>
+  <form class="example" action="action_page.php">
+  <input style="float:right"type="text" placeholder="Search.." name="search">
+  <button style="float:right"type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+
+<!--
+<a href="cart.html">
+    <input type="submit" value="cart" />
+</a>
+--->
+
+<div class="row">
+  <div class="column 75">
+    <div class="container">
+	  <form action="action.php">
+	    
+		<div class="row">
+		  <div class="column 50">
+		    <h2>Billing Address</h2>
+			<input type="text" id="fname" name="firstname" placeholder="First Name">
+			<input type="text" id="lname" name="lasttname" placeholder="Last Name">
+			<input type="text" id="email" name="email" placeholder="Email">
+			<input type="text" id="address" name="address" placeholder="Address">
+			<input type="text" id="city" name="city" placeholder="City">
+			<div class="row">
+		      <div class="column 50">
+				<input type="text" id="state" name="state" placeholder="State">
+		      </div>
+			  <div class="column 50">
+			    <input type="text" id="postal" name="postal" placeholder="Postal Code">
+			  </div>
+            </div>
+		  </div>
+
+          <div class="column 50">
+		    <h2>Payment</h2>
+			<label for="acard">Accepted Cards</label>
+			<div class="icon-container">
+			  <i class="fa fa-cc-visa"></i>
+              <i class="fa fa-cc-amex"></i>
+              <i class="fa fa-cc-mastercard"></i>
+              <i class="fa fa-cc-discover"></i>
+			</div>
+			<input type="text" id="cardname" name="cardname" placeholder="Name on Card">
+			<input type="text" id="cardnumber" name="cardnumber" placeholder="Card number">
+			<input type="text" id="cvv" name="cvv" placeholder="CVV">
+			<div class="row">
+			  <div class="column 50">
+			    <input type="text" id="expmonth" name="expmonth" placeholder="Exp Month">
+			  </div>
+			  <div class="column 50">
+			    <input type="text" id="expyear" name="expyear" placeholder="Exp Year">
+			  </div>
+			</div>
+		  </div> 
+		</div>
+        <input type="submit" value="Place Order" class="btn">
+	  </form>
+	</div>
+  </div>
+  
+  <div class="column 25">
+    <div class="container">
+	  <h4>Cart Summary <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i><b>3</b></span></h4>
+	  <p><a href="#">Crab Legs</a> <span class="price">$45</span></p>
+      <p><a href="#">Squid</a> <span class="price">$25</span></p>
+      <p><a href="#">Octopus</a> <span class="price">$30</span></p>
+      <hr<
+	  <p>Total <span class="price" style="color: black"><b>$100</b></span></p>
+	</div>
+  </div>
+ </div> 
+  
+</div>
+
+
+</body>
+</html>
