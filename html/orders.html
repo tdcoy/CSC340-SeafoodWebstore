@@ -8,6 +8,16 @@
       min-height: 100%;
       padding-bottom: 100px;
     }
+
+    /*remove the white borders*/
+    * {
+      margin: 0px;
+      padding: 0px;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      max-width: auto;
+    }
+
     .topbarLeft {
       background-color: #00228a;
       overflow: hidden;
@@ -205,16 +215,7 @@
         <a href="orders.html">Orders</a>
         <a style="float: right" href="cart.html">Checkout</a>
         <a style="float: right" href="login.html">Login</a>
-        <form class="example" action="action_page.php">
-          <input
-            style="float: right"
-            type="text"
-            placeholder="Search.."
-            name="search"
-          />
-          <button style="float: right" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
+        
         </form>
       </div>
 
