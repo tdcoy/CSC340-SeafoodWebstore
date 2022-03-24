@@ -1,180 +1,195 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.content {
-  max-width: auto;
-  margin: 0 auto;
-  position: relative;
-  min-height: 100%;
-  padding-bottom: 100px;
-}
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .content {
+        max-width: auto;
+        margin: 0 auto;
+        position: relative;
+        min-height: 100%;
+        padding-bottom: 100px;
+      }
 
+      .topbarLeft {
+        background-color: #00228a;
+        overflow: hidden;
+      }
+      .topbarLeft a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 19px;
+      }
+      .topbarLeft a:hover {
+        background-color: #ffffff;
+        color: black;
+      }
 
-.topbarLeft {
-  background-color: #00228a;
-  overflow: hidden;
-}
-.topbarLeft a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 19px;
-}
-.topbarLeft a:hover {
-  background-color: #ffffff;
-  color: black;
-}
+      .logobar {
+        background-color: #00228a;
+        overflow: hidden;
+        padding: 14px 16px;
+      }
+      .logobar a {
+        float: left;
+        color: #ffffff;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 19px;
+      }
+      .logobar a:login {
+        text-align: left;
+      }
 
-.logobar {
-  background-color: #00228a;
-  overflow: hidden;
-  padding: 14px 16px;
-}
-.logobar a {
-  float: left;
-  color: #ffffff;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 19px;
-}
-.logobar a:login {
-	text-align: left;
-}
+      form.example input[type="text"] {
+        padding: 15px;
+        font-size: 17px;
+        border: 1px solid white;
+        float: left;
+        width: 17%;
+        background: #ffffff;
+      }
+      form.example button {
+        float: left;
+        width: 3%;
+        padding: 15px;
+        background: #2196f3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none; /* Prevent double borders */
+        cursor: pointer;
+      }
 
-form.example input[type=text] {
-  padding: 15px;
-  font-size: 17px;
-  border: 1px solid white;
-  float: left;
-  width: 17%;
-  background: #ffffff;
-}
-form.example button {
-  float: left;
-  width: 3%;
-  padding: 15px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-}
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        max-width: auto;
+      }
 
-* {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  max-width: auto;
-}
+      .column {
+        float: left;
+        width: 50%;
+        text-align: center;
+        padding: 10px;
+        height: 500px;
+      }
 
-.column {
-  float: left;
-  width: 50%;
-  text-align: center;
-  padding: 10px;
-  height: 500px;
-}
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+      .footer {
+        margin-top: auto;
+        overflow: hidden;
+        position: relative;
+        padding: 10px;
+        left: 100px;
+        bottom: 0px;
+        width: 100%;
+        background-color: white;
+        color: black;
+        text-align: left;
+        font-family: Rockwell;
+      }
+      .footer h2 {
+        margin-bottom: 5px;
+      }
+      .footer p {
+        margin-bottom: 5px;
+      }
+      .footer-container {
+        border-top: 3px solid darkblue;
+      }
+    </style>
 
-.footer {
-  margin-top: auto;
-  overflow: hidden;
-  position: relative;
-  padding: 10px;
-  left: 100px;
-  bottom: 0px;
-  width: 100%;
-  background-color: white;
-  color: black;
-  text-align: left;
-  font-family: Rockwell;
-}
-.footer h2 {
-  margin-bottom: 5px;
-}
-.footer p {
-  margin-bottom: 5px;
-}
-.footer-container {
-  border-top: 3px solid darkblue;
-}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-</style>
+    <meta charset="utf-8" />
+    <title>Seafood WebStore</title>
+  </head>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <body>
+    <div class="content">
+      <div class="logobar">
+        <body>
+          <h1 style="font-family: Rockwell; color: white; font-size: 40px">
+            &nbsp;Seafood Store
+          </h1>
+        </body>
+      </div>
 
-
-
-
-	<meta charset="utf-8">
-	<title>Seafood WebStore</title>
-</head>
-
-<body>
-
-<div class="content">
-
-<div class="logobar">
-
-<body>
-
-<h1 style="font-family: Rockwell; color:white;font-size:40px;">&nbsp;Seafood Store</h1>
-
-
-</body>
-
-</div>
-
-<div style="font-family: Rockwell" class="topbarLeft">
-  <a class="active" href="index.html">Home</a>
-  <a href="about.html">About </a>
-  <a href="orders.html">Orders</a>
-  <a style="float:right" href="cart.html">Checkout</a>
-  <a style="float:right" href="login.html">Login</a>
-  <form class="example" action="action_page.php">
-</form>
-</div>
-</div>
-
-<img src="images/kingcrab.jpg" alt="kingcrab" width="400" height="200" style="margin-left: auto; margin-right: auto; display: block;">
-
-<div class="row">
-  <div class="column">
-    <h2>Who are we?</h2>
-    <p style="font-size: 1.275vw; font-weight: 400; margin: 0px 200px 0px">We are the best seafood store that you can find around Greensboro area. We sell fresh, high quality major seafood products with some of the cheapest price you will find in the area.</p>
-  </div>
-  <div class="column">
-    <h2>Store Location</h2>
-    <p style="font-size: 1.275vw; font-weight: 400; text-align: justify; margin: 0px 35% -6%">1715 Walker Ave<br>Greensboro, NC 27403<br>
-		<span style="font-weight: 700;">Phone</span>: (336) 262-5019
-	</p>
-	<img src="images/navigation.jpg" alt="navigation" width="50" height="50" style="float:left; margin-left: 28%;">
-  </div>
-</div>
-
-<div class="footer-container">
-  <div class="footer">
-    <div class="footer heading footer-1">
-      <h2>Developers</h2>
-      <p>Luong Luu</p>
-      <p>Terrence Coy</p>
-      <p>Mohammed Almalki</p>
+      <div style="font-family: Rockwell" class="topbarLeft">
+        <a class="active" href="index.html">Home</a>
+        <a href="about.html">About </a>
+        <a href="orders.html">Orders</a>
+        <a style="float: right" href="cart.html">Checkout</a>
+        <a style="float: right" href="login.html">Login</a>
+        <form class="example" action="action_page.php"></form>
+      </div>
     </div>
-  </div>
-</div>
 
-</body>
+    <img
+      src="images/kingcrab.jpg"
+      alt="kingcrab"
+      width="400"
+      height="200"
+      style="margin-left: auto; margin-right: auto; display: block"
+    />
+
+    <div class="row">
+      <div class="column">
+        <h2>Who are we?</h2>
+        <p style="font-size: 1.275vw; font-weight: 400; margin: 0px 200px 0px">
+          We are the best seafood store that you can find around Greensboro
+          area. We sell fresh, high quality major seafood products with some of
+          the cheapest price you will find in the area.
+        </p>
+      </div>
+      <div class="column">
+        <h2>Store Location</h2>
+        <p
+          style="
+            font-size: 1.275vw;
+            font-weight: 400;
+            text-align: justify;
+            margin: 0px 35% -6%;
+          "
+        >
+          1715 Walker Ave<br />Greensboro, NC 27403<br />
+          <span style="font-weight: 700">Phone</span>: (336) 262-5019
+        </p>
+        <img
+          src="images/navigation.jpg"
+          alt="navigation"
+          width="50"
+          height="50"
+          style="float: left; margin-left: 28%"
+        />
+      </div>
+    </div>
+
+    <div class="footer-container">
+      <div class="footer">
+        <div class="footer heading footer-1">
+          <h2>Developers</h2>
+          <p>Luong Luu</p>
+          <p>Terrence Coy</p>
+          <p>Mohammed Almalki</p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
