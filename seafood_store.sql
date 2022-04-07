@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2022 at 02:44 AM
+-- Generation Time: Apr 07, 2022 at 02:50 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -31,18 +31,19 @@ CREATE TABLE `item` (
   `item_id` int(5) NOT NULL,
   `item_name` varchar(255) NOT NULL,
   `item_price` decimal(10,2) DEFAULT NULL,
-  `item_description` varchar(255) DEFAULT NULL
+  `item_description` varchar(255) DEFAULT NULL,
+  `url` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`item_id`, `item_name`, `item_price`, `item_description`) VALUES
-(0, 'Octopus', '12.00', 'this is octopus'),
-(1, 'Crab Legs', '20.00', 'this is crab legs'),
-(2, 'Shrimp', '15.00', 'this is shrimp'),
-(3, 'Mussels', '8.00', 'this is mussels');
+INSERT INTO `item` (`item_id`, `item_name`, `item_price`, `item_description`, `url`) VALUES
+(0, 'Octopus', '12.00', 'this is octopus', ''),
+(1, 'Crab Legs', '6.00', 'this is crab legs', ''),
+(2, 'Shrimp', '15.00', 'this is shrimp', ''),
+(3, 'Mussels', '8.00', 'this is mussels', '');
 
 -- --------------------------------------------------------
 
