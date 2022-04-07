@@ -12,6 +12,8 @@
         <h1 style="font-family: Rockwell; color: white; font-size: 40px">
           &nbsp;Seafood Store
         </h1>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="index.js"></script>
       </body>
     </div>
 
@@ -19,7 +21,9 @@
       <a class="active" href="index.html">Home</a>
       <a href="about.html">About </a>
       <a href="orders.php">Orders</a>
-      <a style="float: right" href="cart.html">Checkout</a>
+      <a class="cart" style="float: right" href="cart.html">
+        <ion-icon name="cart"></ion-icon> <span> 0</span>
+      </a>
       <?php
         if(isset($_SESSION["user_email"])) {
           echo '<a style="float: right" href="logout.php">Logout</a>';

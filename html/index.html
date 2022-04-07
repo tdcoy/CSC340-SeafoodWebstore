@@ -181,7 +181,9 @@
         <a class="active" href="index.html">Home</a>
         <a href="about.html">About </a>
         <a href="orders.php">Orders</a>
-        <a style="float: right" href="cart.html">Checkout</a>
+        <a class="cart" style="float: right" href="cart.html">
+          <ion-icon name="cart"></ion-icon> <span>0</span>
+          </a>
         <a style="float: right" href="login.php">Login</a>
       </div>
 
@@ -212,7 +214,7 @@
             <option value="3lb">3lb</option>
             <option value="4lb">4lb</option>
           </select>
-          <p><button>Add to Cart</button></p>
+          <p><button class= "addToCart CrabLegs">Add to Cart</button></p>
         </div>
       </div>
 
@@ -226,11 +228,11 @@
           <option value="3lb">3lb</option>
           <option value="4lb">4lb</option>
         </select>
-        <p><button>Add to Cart</button></p>
+        <p><button class= "addToCart shrimp">Add to Cart</button></p>
       </div>
 
       <div style="left: 140px" class="card">
-        <img src="images/Squid.jpg" alt="Squid" style="width: 100%" />
+        <img src="images/Squid.jpeg" alt="Squid" style="width: 100%" />
         <h1>Squid</h1>
         <p class="price">$19.99/1lb</p>
         <select class="dropDownList" name="pounds" id="pounds">
@@ -239,7 +241,7 @@
           <option value="3lb">3lb</option>
           <option value="4lb">4lb</option>
         </select>
-        <p><button>Add to Cart</button></p>
+        <p><button class= "addToCart Squid">Add to Cart</button></p>
       </div>
 
       <div style="left: 160px" class="card">
@@ -252,7 +254,7 @@
           <option value="3lb">3lb</option>
           <option value="4lb">4lb</option>
         </select>
-        <p><button>Add to Cart</button></p>
+        <p><button class= "addToCart octopus">Add to Cart</button></p>
       </div>
 
       <div style="left: 180px" class="card">
@@ -265,7 +267,7 @@
           <option value="3lb">3lb</option>
           <option value="4lb">4lb</option>
         </select>
-        <p><button>Add to Cart</button></p>
+        <p><button class= "addToCart mussels">Add to Cart</button></p>
       </div>
     </div>
 
@@ -279,5 +281,8 @@
         </div>
       </div>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
