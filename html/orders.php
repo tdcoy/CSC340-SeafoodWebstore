@@ -191,7 +191,51 @@
     include_once 'header.php';
     ?>
 
-    <!----Orders--->
+    <?php
+    require_once '../db_connect.php';
+
+    if (isset($_SESSION["user_email"])) {
+      //user is logged in
+      $sql = "SELECT * FROM order WHERE email = '" . $_SESSION["user_email"] . "';";
+      $stmt = mysqli_stmt_init($conn);
+
+      if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../html/orders.php?error=stmtfailed");
+        exit();
+      }
+
+      //Bind data from user to the statement
+      mysqli_stmt_execute($stmt);
+
+      $resultData = mysqli_stmt_get_result($stmt);
+
+      //Fetch all the data about the user if the user exsists in the db
+      if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+      } else {
+        $result = false;
+        return $result;
+      }
+
+      mysqli_stmt_close($stmt);
+
+
+
+
+      $stmt = $mysqli->prepare("SELECT order_number, label FROM test WHERE id = 1");
+      $stmt->execute();
+
+      $stmt->bind_result($out_id, $out_label);
+
+      while ($stmt->fetch()) {
+        printf("id = %s (%s), label = %s (%s)\n", $out_id, gettype($out_id), $out_label, gettype($out_label));
+      }
+    } else {
+      //nothing to display
+    }
+    ?>
+
+    <!----Orders
     <div class="small-container orders-page">
       <div class="order-container">
         <table>
@@ -290,10 +334,11 @@
       </div>
     </div>
   </div>
+  --->
 
-  <?php
-  include_once 'footer.php';
-  ?>
+    <?php
+    include_once 'footer.php';
+    ?>
 </body>
 
 </html>
