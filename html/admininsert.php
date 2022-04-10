@@ -3,7 +3,7 @@
 if(isset($_POST['ItemName']))
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
 
-$con = mysqli_connect('localhost', 'root', '','seafood_store');
+$con = mysqli_connect('localhost', 'root', '','seafood_webstore');
 
 // get the post records
 $ItemId = $_POST['ItemId'];

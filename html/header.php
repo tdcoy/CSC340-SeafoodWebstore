@@ -27,7 +27,6 @@
       <?php
         if(isset($_SESSION["user_email"])) {
           echo '<a style="float: right" href="logout.php">Logout</a>';
-          echo '<a style="float: right" href="acount.php">Acount</a>';
         }
         else{
           echo '<a style="float: right" href="login.php">Login</a>';

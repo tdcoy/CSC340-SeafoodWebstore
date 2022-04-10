@@ -36,6 +36,11 @@
   }
 </style>
 
+<head>
+  <meta charset="utf-8" />
+  <title>Seafood WebStore</title>
+</head>
+
 <body>
   <div class="login-content">
     <?php
@@ -61,16 +66,17 @@
         </form>
 
         <?php
-          if(isset($_GET["error"])){
-            if($_GET["error"] == "emptyinput"){
-              echo "<p>Incomplete fields!</p>";
-            }
-            else if($_GET["error"] == "wronglogin"){
-              echo "<p>Incorrect login!</p>";
-            }
+        if (isset($_GET["error"])) {
+          if ($_GET["error"] == "emptyinput") {
+            echo "<script>alert('Incomplete fields!')</script>";
+            echo "<script>location.href='login.php'</script>";
+          } else if ($_GET["error"] == "wronglogin") {
+            echo "<script>alert('Incorrect login information!')</script>";
+            echo "<script>location.href='login.php'</script>";
           }
+        }
         ?>
-        
+
         <form action="../includes/register.inc.php" id="register" class="login-input-group" method="post">
           <input type="text" name="first-name" class="login-input-field" placeholder="First Name" required />
           <input type="text" name="last-name" class="login-input-field" placeholder="Last Name" required />
@@ -81,20 +87,24 @@
         </form>
 
         <?php
-          if(isset($_GET["error"])){
-            if($_GET["error"] == "emptyinput"){
-              echo "<p>Incomplete fields!</p>";
-            }
-            else if($_GET["error"] == "invalidemail"){
-              echo "<p>This email address is already registered!</p>";
-            }
-            else if($_GET["error"] == "stmtfailed"){
-              echo "<p>Something went wrong :(</p>";
-            }
-            else if($_GET["error"] == "none"){
-              echo "<p>Registration Successful!</p>";
-            }
+        if (isset($_GET["error"])) {
+          if ($_GET["error"] == "emptyinput") {
+            echo "<script>alert('Incomplete fields!')</script>";
+            echo "<script>location.href='login.php'</script>";
+          } else if ($_GET["error"] == "invalidemail") {
+            echo "<script>alert('This email address is already registered!')</script>";
+            echo "<script>location.href='login.php'</script>";
+          } else if ($_GET["error"] == "invalidphone") {
+            echo "<script>alert('This phone number is already in use!')</script>";
+            echo "<script>location.href='login.php'</script>";
+          } else if ($_GET["error"] == "stmtfailed") {
+            echo "<script>alert('Something went very wrong!')</script>";
+            echo "<script>location.href='login.php'</script>";
+          } else if ($_GET["error"] == "none") {
+            echo "<script>alert('Registration successful!')</script>";
+            echo "<script>location.href='../html/index.html'</script>";
           }
+        }
         ?>
 
       </div>

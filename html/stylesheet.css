@@ -7,6 +7,11 @@
     max-width: auto;
   }
 
+  /*prevent the footer from covering content*/
+  html,
+  body {
+    height: 100%;
+  }
 
   /*Navigation bar styling*/
   .topbarLeft {

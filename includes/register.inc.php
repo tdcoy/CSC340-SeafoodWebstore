@@ -18,6 +18,10 @@ if (isset($_POST['register-submit'])) {
         header("location: ../html/login.php?error=invalidemail");
         exit();
     }
+    if(phoneExists($conn, $phone_number) !== false){
+        header("location: ../html/login.php?error=invalidphone");
+        exit();
+    }
 
     createUser($conn, $email, $first_name, $last_name, $phone_number, $password);
 } else {
