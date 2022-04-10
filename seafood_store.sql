@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2022 at 02:50 AM
+-- Generation Time: Apr 10, 2022 at 10:18 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -63,7 +63,7 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`order_number`, `email`, `date_purchase`, `user_id`) VALUES
-(1, 'luu@gmail.com', '2022-04-06', 1);
+(123, 'luongluu@gmail.com', '2022-04-06', 7);
 
 -- --------------------------------------------------------
 
@@ -77,6 +77,15 @@ CREATE TABLE `order_table` (
   `item_quantity` int(3) DEFAULT NULL,
   `order_number` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_table`
+--
+
+INSERT INTO `order_table` (`order_id`, `item_name`, `item_quantity`, `order_number`) VALUES
+(1, 'Crab Legs', 2, 123),
+(2, 'Mussels', 5, 123),
+(3, 'Octopus', 1, 123);
 
 -- --------------------------------------------------------
 
@@ -98,9 +107,8 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `email`, `first_name`, `last_name`, `phone_number`, `password`, `user_type`) VALUES
-(1, 'luu@gmail.com', 'luong', 'luu', '123456789', '1234', 'admin'),
-(3, 'lee@gmail.com', 'Kevin', 'Lee', '234516789', '23451', 'customer');
+INSERT INTO `user` (`user_id`, `user_email`, `user_first_name`, `user_last_name`, `user_phone_number`, `user_password`, `user_type`) VALUES
+(7, 'luongluu@gmail.com', 'Luong', 'Luu', '9196275019', '$2y$10$xI8CCB1wluz8CyyiS/ivWufX.KqlMvOB4NKAGSy0wMIEpQyvrTnBe', '');
 
 --
 -- Indexes for dumped tables
@@ -136,10 +144,10 @@ ALTER TABLE `order_table`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
   ADD UNIQUE KEY `id` (`user_id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `phone_number` (`phone_number`),
-  ADD UNIQUE KEY `password_2` (`password`),
-  ADD KEY `password_3` (`password`);
+  ADD UNIQUE KEY `email` (`user_email`),
+  ADD UNIQUE KEY `phone_number` (`user_phone_number`),
+  ADD UNIQUE KEY `password_2` (`user_password`),
+  ADD KEY `password_3` (`user_password`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -149,13 +157,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_number` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `order_number` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+
+--
+-- AUTO_INCREMENT for table `order_table`
+--
+ALTER TABLE `order_table`
+  MODIFY `order_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
