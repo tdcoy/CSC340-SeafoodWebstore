@@ -189,47 +189,55 @@
   <div class="content">
     <?php
     include_once 'header.php';
-    ?>
-
-    <?php
     require_once '../db_connect.php';
 
-    if (isset($_SESSION["user_email"])) {
-      //user is logged in
-      $sql = "SELECT * FROM order WHERE email = '" . $_SESSION["user_email"] . "';";
+    $email = $_SESSION['user_email'];
+
+    //user is logged in
+    if (isset($_SESSION['user_email'])) {
+      //create template  
+      $sql = "SELECT * FROM orders WHERE user_email = ?;";
       $stmt = mysqli_stmt_init($conn);
 
+      //prepare prepared statement
       if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../html/orders.php?error=stmtfailed");
         exit();
       }
 
-      //Bind data from user to the statement
+      //bind parameters
+      mysqli_stmt_bind_param($stmt, "s", $email);
       mysqli_stmt_execute($stmt);
 
-      $resultData = mysqli_stmt_get_result($stmt);
+      //get result from db
+      $result = mysqli_stmt_get_result($stmt);
 
       //Fetch all the data about the user if the user exsists in the db
-      if ($row = mysqli_fetch_assoc($resultData)) {
-        return $row;
-      } else {
-        $result = false;
-        return $result;
+      while ($row = mysqli_fetch_assoc($result)) {
+        echo $row['order_id'] . "<br>";
+
+        /* $sql = "SELECT * FROM order_table WHERE order_id = ?;";
+        $stmt = mysqli_stmt_init($conn);
+
+        //prepare prepared statement
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+          header("location: ../html/orders.php?error=stmtfailed");
+          exit();
+        }
+
+        //bind parameters
+        mysqli_stmt_bind_param($stmt, "i", $row['order_id']);
+        mysqli_stmt_execute($stmt);
+
+        //get result from db
+        $result = mysqli_stmt_get_result($stmt);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo $row['order_id'] . "<br>";
+        } */
       }
 
       mysqli_stmt_close($stmt);
-
-
-
-
-      $stmt = $mysqli->prepare("SELECT order_number, label FROM test WHERE id = 1");
-      $stmt->execute();
-
-      $stmt->bind_result($out_id, $out_label);
-
-      while ($stmt->fetch()) {
-        printf("id = %s (%s), label = %s (%s)\n", $out_id, gettype($out_id), $out_label, gettype($out_label));
-      }
     } else {
       //nothing to display
     }
