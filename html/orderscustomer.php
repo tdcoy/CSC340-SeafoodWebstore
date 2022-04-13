@@ -195,7 +195,7 @@
     if (isset($_SESSION['user_email'])) {
       $email = $_SESSION["user_email"];
 
-      
+
       //------------------------Get orders assoctiated with session user email-------------------------------
       $sqlOrders = "SELECT * FROM orders WHERE user_email = ?;";
       $stmtOrders = mysqli_stmt_init($conn);

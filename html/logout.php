@@ -7,5 +7,3 @@
 
     echo "<script>alert('Logged out.')</script>";
     echo "<script>location.href='index.php'</script>";
-    
-?>
