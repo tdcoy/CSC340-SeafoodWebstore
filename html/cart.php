@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <style>
     .content {
       max-width: auto;
@@ -333,7 +333,42 @@
         </div>
   
         <div class="products-adding">
-  
+        
+        <?php 
+		    if (isset($_POST['checkoutButton'])){
+            //function addProduct($conn){
+            require_once '../db_connect.php';
+
+            $sql = "INSERT INTO order_table (order_id, item_name, item_quantity, order_number) VALUES(?, ?, ?, ?)";
+            $stmt = mysqli_stmt_init($conn);
+            
+
+            if(!mysqli_stmt_prepare($stmt, $sql)){
+              echo "<script>alert('preparing error!')</script>";
+                exit();
+            }
+
+            $order_number=10;
+            $item_name='test';
+            $item_quantity=1;
+            $order_id=101;
+
+            //Bind data from user to the statement
+            mysqli_stmt_bind_param($stmt, "isii", $order_id, $item_name, $item_quantity, $order_number);
+			      echo "<script>alert('Order has been placed!')</script>";
+
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+
+            //$num_rows=mysqli_stmt_affected_rows($stmt);
+
+            //}          
+        }
+        ?> 
+        </div>
+        
+		
+        
         </div>
   
   
