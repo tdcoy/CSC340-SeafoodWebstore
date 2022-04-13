@@ -100,7 +100,7 @@ function phoneExists($conn, $phone_number){
 }
 
 function createUser($conn, $email, $first_name, $last_name, $phone_number, $password){
-    $sql = "INSERT INTO user (user_email, user_first_name, user_last_name, user_phone_number, user_password) VALUES(? ,? ,? ,? ,?)";
+    $sql = "INSERT INTO user (user_email, user_first_name, user_last_name, user_phone_number, user_password, user_type) VALUES(? ,? ,? ,? ,?, ?)";
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -110,9 +110,10 @@ function createUser($conn, $email, $first_name, $last_name, $phone_number, $pass
 
     //Hash the users password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $type = "customer";
     
     //Bind data from user to the statement
-    mysqli_stmt_bind_param($stmt, "sssss", $email, $first_name, $last_name, $phone_number, $hashedPassword);
+    mysqli_stmt_bind_param($stmt, "ssssss", $email, $first_name, $last_name, $phone_number, $hashedPassword, $type);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     //header("location: ../html/index.html?error=none");

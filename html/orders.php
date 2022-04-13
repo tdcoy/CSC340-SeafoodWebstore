@@ -191,158 +191,39 @@
     include_once 'header.php';
     require_once '../db_connect.php';
 
-    $email = $_SESSION['user_email'];
-
     //user is logged in
     if (isset($_SESSION['user_email'])) {
-      //create template  
-      $sql = "SELECT * FROM orders WHERE user_email = ?;";
-      $stmt = mysqli_stmt_init($conn);
+      $email = $_SESSION["user_email"];
 
-      //prepare prepared statement
-      if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../html/orders.php?error=stmtfailed");
+      //------------------Get User Type-----------------------------
+      $sqlUserType = "SELECT user_type FROM user WHERE user_email = ?;";
+      $stmtUserType = mysqli_stmt_init($conn);
+
+      if (!mysqli_stmt_prepare($stmtUserType, $sqlUserType)) {
+        echo "<script>alert('Something went wrong getting user type!')</script>";
         exit();
       }
 
       //bind parameters
-      mysqli_stmt_bind_param($stmt, "s", $email);
-      mysqli_stmt_execute($stmt);
+      mysqli_stmt_bind_param($stmtUserType, "s", $email);
+      mysqli_stmt_execute($stmtUserType);
 
-      //get result from db
-      $result = mysqli_stmt_get_result($stmt);
+      $resultUserType = mysqli_stmt_get_result($stmtUserType);
 
       //Fetch all the data about the user if the user exsists in the db
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo $row['order_id'] . "<br>";
+      if ($rowUserType = mysqli_fetch_assoc($resultUserType)) {
 
-        /* $sql = "SELECT * FROM order_table WHERE order_id = ?;";
-        $stmt = mysqli_stmt_init($conn);
-
-        //prepare prepared statement
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-          header("location: ../html/orders.php?error=stmtfailed");
-          exit();
+        if ($rowUserType['user_type'] == 'customer') {
+          header("location: ../html/orderscustomer.php");
+        } else {
+          header("location: ../html/ordersvendor.php");
         }
-
-        //bind parameters
-        mysqli_stmt_bind_param($stmt, "i", $row['order_id']);
-        mysqli_stmt_execute($stmt);
-
-        //get result from db
-        $result = mysqli_stmt_get_result($stmt);
-
-        while ($row = mysqli_fetch_assoc($result)) {
-          echo $row['order_id'] . "<br>";
-        } */
       }
-
-      mysqli_stmt_close($stmt);
+      mysqli_stmt_close($stmtUserType);
     } else {
-      //nothing to display
+      echo "<br><br><br><p>No orders to show</p><br><br><br>";
     }
     ?>
-
-    <!----Orders
-    <div class="small-container orders-page">
-      <div class="order-container">
-        <table>
-          <tr>
-            <th>Ordered: 3/20/2022</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="order-info">
-                <img src="images/shrimp.jpeg" />
-                <div>
-                  <p style="font-size: 20px">Shrimp</p>
-                  <small>Price: $16.99/1lb</small>
-                </div>
-              </div>
-            </td>
-            <td>5.10</td>
-            <td>$86.65</td>
-          </tr>
-        </table>
-
-        <div class="order-total">
-          <table>
-            <tr>
-              <td>Subtotal</td>
-              <td>$86.65</td>
-            </tr>
-            <tr>
-              <td>Tax</td>
-              <td>$1.73</td>
-            </tr>
-            <tr>
-              <td>Total</td>
-              <td>$88.38</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="order-container">
-        <table>
-          <tr>
-            <th>Ordered: 2/14/2022</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="order-info">
-                <img src="images/CrabLegs.jpeg" />
-                <div>
-                  <p style="font-size: 20px">Crab Legs</p>
-                  <small>Price: $21.99/1lb</small>
-                </div>
-              </div>
-            </td>
-            <td>1 lb</td>
-            <td>$21.99</td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="order-info">
-                <img src="images/mussels.jpeg" />
-                <div>
-                  <p style="font-size: 20px">Mussels</p>
-                  <small>Price: $23.99/1lb</small>
-                </div>
-              </div>
-            </td>
-            <td>2 lb</td>
-            <td>$45.98</td>
-          </tr>
-        </table>
-
-        <div class="order-total">
-          <table>
-            <tr>
-              <td>Subtotal</td>
-              <td>$67.97</td>
-            </tr>
-            <tr>
-              <td>Tax</td>
-              <td>$1.36</td>
-            </tr>
-            <tr>
-              <td>Total</td>
-              <td>$69.33</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  --->
 
     <?php
     include_once 'footer.php';
