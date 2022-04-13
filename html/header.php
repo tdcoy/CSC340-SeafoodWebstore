@@ -8,7 +8,6 @@ session_start();
 </head>
 
 <div class="logobar">
-
   <body>
     <h1 style="font-family: Rockwell; color: white; font-size: 40px">
       &nbsp;Seafood Store
@@ -20,15 +19,13 @@ session_start();
 
 <div style="font-family: Rockwell" class="topbarLeft">
   <a class="active" href="index.php">Home</a>
-  <a href="about.html">About </a>
-
-
+  <a href="about.php">About </a>
 
   <?php
   require_once '../db_connect.php';
 
-
   if (isset($_SESSION["user_email"])) {
+    $email = $_SESSION["user_email"];
     //------------------Get User Type-----------------------------
     $sqlUserType = "SELECT user_type FROM user WHERE user_email = ?;";
     $stmtUserType = mysqli_stmt_init($conn);
@@ -43,15 +40,20 @@ session_start();
     mysqli_stmt_execute($stmtUserType);
 
     $resultUserType = mysqli_stmt_get_result($stmtUserType);
+    
 
     //Fetch all the data about the user if the user exsists in the db
-    if ($rowUserType = mysqli_fetch_assoc($resultUserType) && $rowUserType['user_type'] == 'admin') {
-      echo '<a href="admin.php">Admin</a>';
-    }
+    if ($rowUserType = mysqli_fetch_assoc($resultUserType)) {
 
+      if ($rowUserType['user_type'] == 'admin') {
+        echo '<a href="admin.php">Admin </a>';
+      } else {
+        echo '<a href="orders.php">Orders </a>';
+      }
+    }
     mysqli_stmt_close($stmtUserType);
   } else {
-    echo '<a href="orders.php">Orders</a>';
+    
   }
   ?>
 

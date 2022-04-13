@@ -176,11 +176,6 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
   />
 
-  <head>
-    <meta charset="utf-8" />
-    <title>Seafood WebStore</title>
-  </head>
-
   <body>
     <div class="content">
     <?php
@@ -198,7 +193,7 @@
         "
         class="list1"
       >
-        <h1 class="active" href="index.html" style="text-align: center;">
+        <h1 class="active" href="index.php" style="text-align: center;">
           Best-selling
         </h1>
       </div>

@@ -180,11 +180,6 @@
   }
 </style>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Seafood WebStore</title>
-</head>
-
 <body>
   <div class="content">
     <?php

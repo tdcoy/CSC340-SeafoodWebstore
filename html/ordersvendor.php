@@ -23,6 +23,20 @@
         overflow: hidden;
     }
 
+    .btn{
+            background-color: red;
+            border: none;
+            color: white;
+            padding: 5px 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
     .topbarLeft a {
         float: left;
         color: #f2f2f2;
@@ -339,8 +353,9 @@
                     //---Order Status---
                     echo "<tr>";
                     echo '<form action="../includes/orders.inc.php" method="post">';
-                    echo '<td><button type="submit" name="order-submit"> Complete Order </button></td>';
-
+                    echo "<td>";
+                    echo "<a href=../includes/orders.inc.php?id=".$rowOrders['order_number']." class='btn'>Complete Order</a>";
+                    echo "</td>";
                     echo "
             </tr>
             <tr>
