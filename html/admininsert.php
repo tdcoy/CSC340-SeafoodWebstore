@@ -10,9 +10,10 @@ $ItemId = $_POST['ItemId'];
 $ItemName = $_POST['ItemName'];
 $ItemPrice = $_POST['ItemPrice'];
 $ItemDescription = $_POST['ItemDescription'];
+$ItemUrl = $_POST['ItemUrl'];
 
 // database insert SQL code
-$sql = "INSERT INTO `item` (`item_id`, `item_name`, `item_price`, `item_description`) VALUES ('$ItemId', '$ItemName', '$ItemPrice', '$ItemDescription')";
+$sql = "INSERT INTO `item` (`item_id`, `item_name`, `item_price`, `item_description`, `url`) VALUES ('$ItemId', '$ItemName', '$ItemPrice', '$ItemDescription', '$ItemUrl')";
 
 // insert in database 
 $rs = mysqli_query($con, $sql);
