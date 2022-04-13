@@ -126,32 +126,47 @@
       font-size: 22px;
     }
     .dropDownList {
-      border-radius: 10px;
+      margin-left: auto;
+      border-radius: 5px;
       border: none;
       outline: 0;
-      padding: 12px;
+      padding: 6px;
       color: Black;
       border: 2px solid #00228a;
       text-align: center;
       cursor: pointer;
-      width: 100%;
-      font-size: 18px;
+      width: 75%;
+      font-size: 14px;
     }
-    .card button {
-      margin-top: 10px;
+    button {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: auto;
       border-radius: 10px;
       border: none;
       outline: 0;
-      padding: 12px;
+      padding: 16px;
       color: white;
       background-color: #00228a;
       text-align: center;
       cursor: pointer;
-      width: 100%;
+      width: 45%;
       font-size: 18px;
     }
-    .card button:hover {
+    button:hover {
       opacity: 0.7;
+    }
+    table {
+      margin-left: 10%;
+      margin-top: 100px;
+      width: 80%;
+      font-size: 30px;
+
+    }
+    th, td {
+      text-align: center;
+      padding: 2px;
+      border-bottom: 3px solid darkblue;
     }
   </style>
 
@@ -178,97 +193,74 @@
 
       <!--top Nav bar buttons--->
       <div style="font-family: Rockwell" class="topbarLeft">
-        <a class="active" href="index.php">Home</a>
+        <a class="active" href="index.html">Home</a>
         <a href="about.html">About </a>
-        <a href="orders.php">Orders</a>
-        <a class="cart" style="float: right" href="cart.php">
-          <ion-icon name="cart"></ion-icon> <span>0</span>
-        </a>
-        <a style="float: right" href="login.php">Login</a>
+        <a href="orders.html">Orders</a>
+        <a style="float: right" href="cart.html">Checkout</a>
+        <a style="float: right" href="login.html">Login</a>
       </div>
 
       <div
         style="
           font-family: Rockwell;
           position: relative;
-          left: 100px;
-          top: 100px;
-          font-size: 35px;
+          left: 0px;
+          top: 35px;
+          bottom: auto;
+          font-size: 25px;
         "
         class="list1"
       >
-        <body class="active" href="index.php">
+        <h1 class="active" href="index.html" style="text-align: center;">
           Best-selling
-        </body>
+        </h1>
       </div>
 
-      <!--Product cards--->
-      <div style="left: 100px" class="card">
-        <img src="images/CrabLegs.jpeg" alt="CrabLegs" style="width: 100%" />
-        <h1>Crab Legs</h1>
-        <p class="price">$21.99/1lb</p>
-        <div>
-          <select class="dropDownList" name="pounds" id="pounds">
-            <option value="1lb">1lb</option>
-            <option value="2lb">2lb</option>
-            <option value="3lb">3lb</option>
-            <option value="4lb">4lb</option>
-          </select>
-          <p><button class="addToCart CrabLegs">Add to Cart</button></p>
-        </div>
-      </div>
+<div class="table" style="font-family: Rockwell; font-size: 40px; margin-left: auto; margin-right: auto;">
+  <div class="th">
+    <div class="td">
+<?php
+// database connection code
 
-      <div style="left: 120px" class="card">
-        <img src="images/shrimp.jpeg" alt="shrimp" style="width: 100%" />
-        <h1>Shrimp</h1>
-        <p class="price">$16.99/1lb</p>
-        <select class="dropDownList" name="pounds" id="pounds">
-          <option value="1lb">1lb</option>
-          <option value="2lb">2lb</option>
-          <option value="3lb">3lb</option>
-          <option value="4lb">4lb</option>
-        </select>
-        <p><button class="addToCart shrimp">Add to Cart</button></p>
-      </div>
+// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
 
-      <div style="left: 140px" class="card">
-        <img src="images/Squid.jpeg" alt="Squid" style="width: 100%" />
-        <h1>Squid</h1>
-        <p class="price">$19.99/1lb</p>
-        <select class="dropDownList" name="pounds" id="pounds">
-          <option value="1lb">1lb</option>
-          <option value="2lb">2lb</option>
-          <option value="3lb">3lb</option>
-          <option value="4lb">4lb</option>
-        </select>
-        <p><button class="addToCart Squid">Add to Cart</button></p>
-      </div>
+$con = mysqli_connect('localhost', 'root', '','seafood_webstore');
 
-      <div style="left: 160px" class="card">
-        <img src="images/octopus.jpeg" alt="octopus" style="width: 100%" />
-        <h1>Octopus</h1>
-        <p class="price">$26.99/1lb</p>
-        <select class="dropDownList" name="pounds" id="pounds">
-          <option value="1lb">1lb</option>
-          <option value="2lb">2lb</option>
-          <option value="3lb">3lb</option>
-          <option value="4lb">4lb</option>
-        </select>
-        <p><button class="addToCart octopus">Add to Cart</button></p>
-      </div>
+if (!$con) {
+  die("Connection failed: " . mysqli_connect_error());
+}
 
-      <div style="left: 180px" class="card">
-        <img src="images/mussels.jpeg" alt="mussels" style="width: 100%" />
-        <h1>Mussels</h1>
-        <p class="price">$23.99/1lb</p>
-        <select class="dropDownList" name="pounds" id="pounds">
-          <option value="1lb">1lb</option>
-          <option value="2lb">2lb</option>
-          <option value="3lb">3lb</option>
-          <option value="4lb">4lb</option>
-        </select>
-        <p><button class="addToCart mussels">Add to Cart</button></p>
-      </div>
+// Get the products
+$sql = "SELECT * FROM item"; // SQL with parameters
+$stmt = $con->prepare($sql); 
+$stmt->execute();
+$result = $stmt->get_result(); // get the mysqli result
+
+echo "<table>";
+
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+while($row = mysqli_fetch_assoc($result))
+   {
+      echo '<tr>';
+      echo '<td style="width:25%"> <img src="images/' . $row['url'] . '" alt="' .$row['item_name'] . '" style="width="300" height="300"" /> </td>';
+      echo '<td style="width:20%">' . $row['item_name'] . '</td>';
+      echo '<td style="width:20%"> $' . $row['item_price'] . '</td>';
+      echo '<td><p stlye = "border-top: 3px solid darkblue" ><button>Add to Cart</button></p></td>';
+      echo '</tr>';
+   }
+    
+} else {
+    echo "0 results";
+}
+echo "</table>";
+?>
+    </div>
+  </div>
+</div>
+
+      
+      
     </div>
 
     <div class="footer-container">
@@ -281,14 +273,5 @@
         </div>
       </div>
     </div>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-    <script src="index.js"></script>
   </body>
 </html>
