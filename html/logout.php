@@ -6,6 +6,6 @@
     }
 
     echo "<script>alert('Logged out.')</script>";
-    echo "<script>location.href='index.html'</script>";
+    echo "<script>location.href='index.php'</script>";
     
 ?>

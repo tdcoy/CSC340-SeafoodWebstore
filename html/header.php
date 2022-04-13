@@ -18,10 +18,10 @@
     </div>
 
     <div style="font-family: Rockwell" class="topbarLeft">
-      <a class="active" href="index.html">Home</a>
+      <a class="active" href="index.php">Home</a>
       <a href="about.html">About </a>
       <a href="orders.php">Orders</a>
-      <a class="cart" style="float: right" href="cart.html">
+      <a class="cart" style="float: right" href="cart.php">
         <ion-icon name="cart"></ion-icon> <span> 0</span>
       </a>
       <?php

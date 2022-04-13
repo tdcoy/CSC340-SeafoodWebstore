@@ -135,11 +135,13 @@ function displayCart() {
 		<div class="basketTotalContainer">
 			<h4 class="basketTotalTitle">Cart Total</h4>
 			<h4 class="basketTotal">$${cart}</h4>
-		</div>
-		<div class="checkoutButtonSection">
-			<button class= "checkoutButton">Place Your Order</button>
-		</div>
-		
+
+			<div class="checkoutButtonSection"> 
+				<form method="post">         
+					<button type="submit" name="checkoutButton" class="checkoutButton">HHHHHHHH</button>
+				</form>
+			</div>
+			
 		`
 		}
 		if(cart <= 0){

@@ -102,7 +102,7 @@
             echo "<script>location.href='login.php'</script>";
           } else if ($_GET["error"] == "none") {
             echo "<script>alert('Registration successful!')</script>";
-            echo "<script>location.href='../html/index.html'</script>";
+            echo "<script>location.href='../html/index.php'</script>";
           }
         }
         ?>

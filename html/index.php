@@ -178,10 +178,10 @@
 
       <!--top Nav bar buttons--->
       <div style="font-family: Rockwell" class="topbarLeft">
-        <a class="active" href="index.html">Home</a>
+        <a class="active" href="index.php">Home</a>
         <a href="about.html">About </a>
         <a href="orders.php">Orders</a>
-        <a class="cart" style="float: right" href="cart.html">
+        <a class="cart" style="float: right" href="cart.php">
           <ion-icon name="cart"></ion-icon> <span>0</span>
         </a>
         <a style="float: right" href="login.php">Login</a>
@@ -197,7 +197,7 @@
         "
         class="list1"
       >
-        <body class="active" href="index.html">
+        <body class="active" href="index.php">
           Best-selling
         </body>
       </div>

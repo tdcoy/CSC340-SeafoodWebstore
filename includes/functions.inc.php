@@ -38,7 +38,7 @@ function loginUser($conn, $email, $password){
     else if($checkPassword === true){
         session_start();
         $_SESSION["user_email"] = $emailExists["user_email"];
-        header("location: ../html/index.html");
+        header("location: ../html/index.php");
         exit();
     }
 }
@@ -70,7 +70,6 @@ function emailExists($conn, $email){
 
     mysqli_stmt_close($stmt);
 }
-
 function phoneExists($conn, $phone_number){
     $sql = "SELECT * FROM user WHERE user_phone_number = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -98,7 +97,6 @@ function phoneExists($conn, $phone_number){
 
     mysqli_stmt_close($stmt);
 }
-
 function createUser($conn, $email, $first_name, $last_name, $phone_number, $password){
     $sql = "INSERT INTO user (user_email, user_first_name, user_last_name, user_phone_number, user_password, user_type) VALUES(? ,? ,? ,? ,?, ?)";
     $stmt = mysqli_stmt_init($conn);
@@ -118,6 +116,33 @@ function createUser($conn, $email, $first_name, $last_name, $phone_number, $pass
     mysqli_stmt_close($stmt);
     //header("location: ../html/index.html?error=none");
     echo "<script>alert('Registration successful!')</script>";
-    echo "<script>location.href='../html/index.html'</script>";
+    echo "<script>location.href='../html/index.php'</script>";
     exit();
+}
+function createOrder($conn, $order_id, $item_name, $item_quantity, $order_number){
+
+    //function addProduct($conn){
+    //require_once '../db_connect.php';
+
+    $sql = "INSERT INTO order_table (order_id, item_name, item_quantity, order_number) VALUES(?, ?, ?, ?)";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        echo "<script>alert('preparing error!')</script>";
+        exit();
+    }
+
+    $order_number=10;
+    $item_name="test";
+    $item_quantity=1;
+    $order_id=101;
+
+    //Bind data from user to the statement
+    mysqli_stmt_bind_param($stmt, "isii", $order_id, $item_name, $item_quantity, $order_number);
+    mysqli_stmt_execute($stmt);
+    echo "<script>alert('Order has been placed!')</script>";
+    mysqli_stmt_close($stmt);
+
+    //$num_rows=mysqli_stmt_affected_rows($stmt);
+    //}
 }
