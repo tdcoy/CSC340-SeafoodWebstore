@@ -183,22 +183,9 @@
 
   <body>
     <div class="content">
-      <div class="logobar">
-        <body>
-          <h1 style="font-family: Rockwell; color: white; font-size: 40px">
-            &nbsp;Seafood Store
-          </h1>
-        </body>
-      </div>
-
-      <!--top Nav bar buttons--->
-      <div style="font-family: Rockwell" class="topbarLeft">
-        <a class="active" href="index.html">Home</a>
-        <a href="about.html">About </a>
-        <a href="orders.html">Orders</a>
-        <a style="float: right" href="cart.html">Checkout</a>
-        <a style="float: right" href="login.html">Login</a>
-      </div>
+    <?php
+    include_once 'header.php';
+    ?>
 
       <div
         style="
