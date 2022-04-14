@@ -176,6 +176,11 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
   />
 
+  <head>
+    <meta charset="utf-8" />
+    <title>Seafood WebStore</title>
+  </head>
+
   <body>
     <div class="content">
     <?php
@@ -193,7 +198,7 @@
         "
         class="list1"
       >
-        <h1 class="active" href="index.php" style="text-align: center;">
+        <h1 class="active" href="index.html" style="text-align: center;">
           Best-selling
         </h1>
       </div>
@@ -224,11 +229,18 @@ if (mysqli_num_rows($result) > 0) {
     // output data of each row
 while($row = mysqli_fetch_assoc($result))
    {
+      print_r($row['item_name']);
       echo '<tr>';
       echo '<td style="width:25%"> <img src="images/' . $row['url'] . '" alt="' .$row['item_name'] . '" style="width="300" height="300"" /> </td>';
       echo '<td style="width:20%">' . $row['item_name'] . '</td>';
       echo '<td style="width:20%"> $' . $row['item_price'] . '</td>';
-      echo '<td><p stlye = "border-top: 3px solid darkblue" ><button>Add to Cart</button></p></td>';
+      echo '<td>
+      <form name="CartAdding" method="post" action="cartadding.php">
+      <input type="number" name="ItemQuantity" id="ItemQuantity" min="1" max="' . $row['item_quantity'] . '" placeholder="Quantity" >
+      <input type="hidden" name="ItemName" id="ItemName" value="' . $row['item_name'] . '">
+      <input type="hidden" name="ItemPrice" id="ItemPrice" value="' . $row['item_price'] . '">
+      <p stlye = "border-top: 3px solid darkblue" ><button>Add to Cart</button></p>
+      </td>';
       echo '</tr>';
    }
     

@@ -175,7 +175,7 @@
     max-width: 1000px;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     font-family: Rockwell;
@@ -223,7 +223,7 @@
   }
 
   .total {
-    width: 10%;
+    width: 5%;
     border-bottom: 5x solid darkblue;
     display: flex;
     align-items: center;
@@ -334,37 +334,42 @@
   
         <div class="products-adding">
         
-        <?php 
-		    if (isset($_POST['checkoutButton'])){
-            //function addProduct($conn){
-            require_once '../db_connect.php';
+        <?php
+// database connection code
 
-            $sql = "INSERT INTO order_table (order_id, item_name, item_quantity, order_number) VALUES(?, ?, ?, ?)";
-            $stmt = mysqli_stmt_init($conn);
-            
+// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
 
-            if(!mysqli_stmt_prepare($stmt, $sql)){
-              echo "<script>alert('preparing error!')</script>";
-                exit();
-            }
+$con = mysqli_connect('localhost', 'root', '','seafood_webstore');
 
-            $order_number=10;
-            $item_name='test';
-            $item_quantity=1;
-            $order_id=101;
+if (!$con) {
+  die("Connection failed: " . mysqli_connect_error());
+}
 
-            //Bind data from user to the statement
-            mysqli_stmt_bind_param($stmt, "isii", $order_id, $item_name, $item_quantity, $order_number);
-			      echo "<script>alert('Order has been placed!')</script>";
+// Get the products
+$cartSubtotal = 0;
+$sql = "SELECT * FROM cart"; // SQL with parameters
+$stmt = $con->prepare($sql); 
+$stmt->execute();
+$result = $stmt->get_result(); // get the mysqli result
 
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_close($stmt);
 
-            //$num_rows=mysqli_stmt_affected_rows($stmt);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+while($row = mysqli_fetch_assoc($result))
+   {
+      $cartSubtotal += $row['cart_item_quantity'] * $row['cart_item_price'];
+      echo '<div class="product-title" style="margin-top: 15px"> <p>' . $row['cart_item_name'] . '</div>';
+      echo '<div class="price" style="margin-top: 15px"> <span>$' . $row['cart_item_price'] . '</span></div>';
+      echo '<div class="quantity" style="margin-top: 15px; margin-left: 50px;"> <span>' . $row['cart_item_quantity'] . '</span></div>';
+      echo '<div class=total" style="margin-top: 15px"> <span>$' . $row['cart_item_quantity'] * $row['cart_item_price'] . '.00</span></div>';
+      echo '<br>';
+   }
+} else {
+    echo "0 results";
+}
 
-            //}          
-        }
-        ?> 
+echo '<div class=total" style="margin-top: 15px; margin-left: 950px">$' . $cartSubtotal . '.00';
+?> 
         </div>
         
 		
